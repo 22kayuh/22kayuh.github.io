@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eilapadil - Sewa Kerusi & Meja Premium</title>
+    
+    <!-- Google Fonts: Playfair Display for elegant headings, Inter for clean body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #D4AF37; /* Elegant Gold */
+            --primary-dark: #B5952F;
+            --bg-light: #FDFBF7;
+            --text-dark: #2C2C2C;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        p { margin-bottom: 1rem; }
+        
+        img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section { padding: 5rem 0; }
+        
+        .text-center { text-align: center; }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1EBE5C;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x1080/2C2C2C/D4AF37?text=Majlis+Elegan') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Bento Grid - Kelebihan */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .bento-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .bento-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Koleksi & Pakej */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+
+        .package-header {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .package-header h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        .package-price { font-size: 2rem; font-weight: 700; }
+        
+        .package-body { padding: 2rem; flex-grow: 1; }
+        .package-body ul { list-style: none; margin-bottom: 2rem; }
+        .package-body li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .package-body li i { color: var(--primary); }
+
+        /* Proses Tempahan */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 90;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Modal & Form Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Upside Down Animation Classes */
+        .upside-down { transform: rotate(180deg); }
+        .right-side-up { transform: rotate(0deg); }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover { color: var(--text-dark); }
+
+        .math-challenge {
+            background: #FFF9E6;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+
+        .math-question {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .math-question input {
+            width: 80px;
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid #DDD;
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select {
+            padding: 0.8rem 1rem;
+            border: 1px solid #E0E0E0;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            transition: border-color 0.3s;
+            width: 100%;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Micro-interactions & Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .error-msg {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 3rem 0; }
+            .modal-content { padding: 1.5rem; }
+            .sticky-cta { bottom: 1rem; right: 1rem; }
+            .sticky-cta span { display: none; } /* Hide text on mobile, icon only */
+            .sticky-cta { padding: 1rem; border-radius: 50%; width: 60px; height: 60px; justify-content: center; }
+            .sticky-cta i { font-size: 1.8rem; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container reveal">
+            <h1>Serlahkan Keanggunan Majlis Anda</h1>
+            <p>Penyelesaian sewaan kerusi, meja & kelengkapan acara premium untuk majlis perkahwinan, korporat dan persendirian yang tidak dapat dilupakan.</p>
+            <button class="btn btn-primary btn-book" data-package="Pertanyaan Umum">
+                <i class="fa-solid fa-calendar-check"></i> Tempah Sekarang
+            </button>
+        </div>
+    </header>
+
+    <!-- Kelebihan Section -->
+    <section id="kelebihan">
+        <div class="container text-center">
+            <h2>Kenapa Pilih Eilapadil?</h2>
+            <p class="text-muted">Komitmen kami untuk kesempurnaan majlis anda.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card reveal">
+                    <i class="fa-solid fa-crown bento-icon"></i>
+                    <h3>Kualiti Premium</h3>
+                    <p>Setiap kerusi dan meja dijaga rapi. Bersih, kukuh dan sentiasa tampak baru untuk tetamu VIP anda.</p>
+                </div>
+                <div class="bento-card reveal">
+                    <i class="fa-solid fa-truck-fast bento-icon"></i>
+                    <h3>Penghantaran Tepat Masa</h3>
+                    <p>Kami menjamin logistik yang cekap. Pasukan kami akan tiba dan menyusun kelengkapan sebelum majlis bermula.</p>
+                </div>
+                <div class="bento-card reveal">
+                    <i class="fa-solid fa-hand-holding-dollar bento-icon"></i>
+                    <h3>Harga Telus & Berbaloi</h3>
+                    <p>Tiada kos tersembunyi. Pakej fleksibel mengikut bajet dan saiz majlis anda dari kecil hingga berskala mega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pakej Section -->
+    <section id="pakej" style="background-color: white;">
+        <div class="container">
+            <h2 class="text-center">Pakej Popular Kami</h2>
+            <p class="text-center text-muted">Sesuai untuk pelbagai jenis majlis.</p>
+            
+            <div class="card-grid">
+                <!-- Pakej 1 -->
+                <div class="package-card reveal">
+                    <div class="package-header">
+                        <h3>Majlis Intim</h3>
+                        <div class="package-price">RM 350</div>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Sesuai untuk 50 Tetamu</p>
+                    </div>
+                    <div class="package-body">
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 5 Meja Bulat (Alas Premium)</li>
+                            <li><i class="fa-solid fa-check"></i> 50 Kerusi Plastik Bersarung</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Meja Hadiah / Kek</li>
+                            <li><i class="fa-solid fa-check"></i> Percuma Pemasangan</li>
+                        </ul>
+                        <button class="btn btn-primary btn-book" style="width: 100%;" data-package="Pakej Majlis Intim">Pilih Pakej Ini</button>
+                    </div>
+                </div>
+
+                <!-- Pakej 2 -->
+                <div class="package-card reveal" style="border: 2px solid var(--primary); transform: scale(1.05); z-index: 10;">
+                    <div class="package-header" style="background: var(--primary); position: relative;">
+                        <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #2C2C2C; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">PILIHAN RAMAI</span>
+                        <h3 style="color: white;">Majlis Sederhana</h3>
+                        <div class="package-price">RM 750</div>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Sesuai untuk 150 Tetamu</p>
+                    </div>
+                    <div class="package-body">
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 15 Meja Bulat (Alas Premium)</li>
+                            <li><i class="fa-solid fa-check"></i> 150 Kerusi Chiavari Gold</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Meja Buffet / Katering</li>
+                            <li><i class="fa-solid fa-check"></i> Diskaun Kos Penghantaran</li>
+                        </ul>
+                        <button class="btn btn-primary btn-book" style="width: 100%; background: var(--text-dark);" data-package="Pakej Majlis Sederhana">Pilih Pakej Ini</button>
+                    </div>
+                </div>
+
+                <!-- Pakej 3 -->
+                <div class="package-card reveal">
+                    <div class="package-header">
+                        <h3>Majlis Grand</h3>
+                        <div class="package-price">RM 1,400</div>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Sesuai untuk 300 Tetamu</p>
+                    </div>
+                    <div class="package-body">
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 30 Meja Bulat (Alas Premium)</li>
+                            <li><i class="fa-solid fa-check"></i> 300 Kerusi Chiavari / Banquet</li>
+                            <li><i class="fa-solid fa-check"></i> Set Meja VIP (Dome)</li>
+                            <li><i class="fa-solid fa-check"></i> Penghantaran Percuma (Lembah Klang)</li>
+                        </ul>
+                        <button class="btn btn-primary btn-book" style="width: 100%;" data-package="Pakej Majlis Grand">Pilih Pakej Ini</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proses Section -->
+    <section id="proses">
+        <div class="container text-center">
+            <h2>Proses Tempahan Mudah</h2>
+            <div class="process-steps">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h4>Pilih Pakej</h4>
+                    <p>Pilih pakej atau item sewaan mengikut keperluan dan saiz majlis anda.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <h4>Isi Borang & Sahkan</h4>
+                    <p>Selesaikan cabaran keselamatan dan hantar butiran melalui WhatsApp.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <h4>Persiapan Majlis</h4>
+                    <p>Kami uruskan selebihnya. Peralatan akan dihantar tepat pada waktunya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky WhatsApp CTA -->
+    <button class="btn btn-whatsapp sticky-cta btn-book" data-package="Pertanyaan Umum dari Butang Terapung">
+        <i class="fab fa-whatsapp"></i> <span>Tempah Sekarang</span>
+    </button>
+
+    <!-- Modal Tempahan Terbalik -->
+    <div id="bookingModal" class="modal-overlay">
+        <!-- Kotak Modal ini akan bermula dengan kelas 'upside-down' -->
+        <div class="modal-content upside-down" id="modalBox">
+            <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-center" style="color: var(--primary);">Borang Tempahan</h3>
+            
+            <!-- Cabaran Sifir 3 -->
+            <div id="mathChallenge" class="math-challenge">
+                <p style="font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">Sila jawab Sifir 3 untuk betulkan kedudukan borang ini:</p>
+                <div class="math-question">
+                    <span id="mathQuestionText" style="font-weight: bold; font-size: 1.2rem;">3 x ? =</span>
+                    <input type="number" id="mathAnswer" placeholder="Jwp">
+                    <button type="button" class="btn btn-primary" id="verifyMathBtn" style="padding: 0.5rem 1rem;">Sahkan</button>
+                </div>
+                <p id="mathError" class="error-msg">Jawapan salah, sila cuba kira semula.</p>
+            </div>
+
+            <!-- Borang (Akan 'disabled' selagi Sifir belum dijawab) -->
+            <form id="bookingForm" class="form-disabled">
+                <div class="form-group">
+                    <label>Nama Penuh</label>
+                    <input type="text" id="b_name" required disabled placeholder="Cth: Ahmad Ali">
+                </div>
+                <div class="form-group">
+                    <label>Pakej Pilihan</label>
+                    <input type="text" id="b_package" required disabled readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tarikh Majlis</label>
+                    <input type="date" id="b_date" required disabled>
+                </div>
+                <div class="form-group">
+                    <label>Lokasi Penuh (Daerah/Poskod)</label>
+                    <input type="text" id="b_location" required disabled placeholder="Cth: Dewan Komuniti Bangi, 43650">
+                </div>
+                
+                <button type="submit" class="btn btn-whatsapp" id="submitFormBtn" disabled style="width: 100%; margin-top: 1rem;">
+                    <i class="fab fa-whatsapp"></i> Hantar Tempahan ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 1. Scroll Reveal Animation Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 2. Modal & Math Challenge Logic
+        const bookingModal = document.getElementById('bookingModal');
+        const modalBox = document.getElementById('modalBox');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const bookButtons = document.querySelectorAll('.btn-book');
+        
+        // Math elements
+        const mathChallenge = document.getElementById('mathChallenge');
+        const mathQuestionText = document.getElementById('mathQuestionText');
+        const mathAnswerInput = document.getElementById('mathAnswer');
+        const verifyMathBtn = document.getElementById('verifyMathBtn');
+        const mathError = document.getElementById('mathError');
+        
+        // Form elements
+        const bookingForm = document.getElementById('bookingForm');
+        const formInputs = bookingForm.querySelectorAll('input, button');
+        const packageInput = document.getElementById('b_package');
+
+        let currentCorrectAnswer = 0;
+
+        // Fungsi Jana Soalan Sifir 3
+        function generateMathQuestion() {
+            const multiplier = Math.floor(Math.random() * 12) + 1; // Random 1-12
+            currentCorrectAnswer = 3 * multiplier;
+            mathQuestionText.textContent = `3 x ${multiplier} =`;
+            mathAnswerInput.value = '';
+            mathError.style.display = 'none';
+        }
+
+        // Buka Modal (Terbalik)
+        bookButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Ambil info pakej
+                const selectedPackage = btn.getAttribute('data-package');
+                packageInput.value = selectedPackage;
+                
+                // Reset kedudukan terbalik
+                modalBox.classList.remove('right-side-up');
+                modalBox.classList.add('upside-down');
+                
+                // Kunci form
+                bookingForm.classList.add('form-disabled');
+                formInputs.forEach(input => input.disabled = true);
+                
+                // Tunjuk cabaran Sifir
+                mathChallenge.style.display = 'block';
+                generateMathQuestion();
+                
+                // Papar Modal
+                bookingModal.classList.add('active');
+                
+                // Fokus pada input matematik supaya pengguna boleh terus taip
+                setTimeout(() => mathAnswerInput.focus(), 300);
+            });
+        });
+
+        // Tutup Modal
+        closeModalBtn.addEventListener('click', () => {
+            bookingModal.classList.remove('active');
+        });
+
+        // Sahkan Jawapan Matematik
+        function verifyAnswer() {
+            const userAnswer = parseInt(mathAnswerInput.value);
+            
+            if (userAnswer === currentCorrectAnswer) {
+                // Betul: Betulkan kotak dan buka form
+                mathError.style.display = 'none';
+                modalBox.classList.remove('upside-down');
+                modalBox.classList.add('right-side-up');
+                
+                // Sembunyikan cabaran matematik selepas berjaya
+                setTimeout(() => {
+                    mathChallenge.style.display = 'none';
+                }, 400); // Tunggu sikit untuk UX
+                
+                // Buka kunci form
+                bookingForm.classList.remove('form-disabled');
+                formInputs.forEach(input => input.disabled = false);
+                
+                // Fokus pada input pertama borang
+                document.getElementById('b_name').focus();
+                
+            } else {
+                // Salah: Tunjuk ralat
+                mathError.style.display = 'block';
+                mathAnswerInput.value = ''; // Kosongkan input
+                mathAnswerInput.focus();
+            }
+        }
+
+        verifyMathBtn.addEventListener('click', verifyAnswer);
+        mathAnswerInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                verifyAnswer();
+            }
+        });
+
+        // 3. Form Submission ke WhatsApp (0196310454)
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('b_name').value;
+            const pkg = document.getElementById('b_package').value;
+            const date = document.getElementById('b_date').value;
+            const location = document.getElementById('b_location').value;
+            
+            // Format Mesej WhatsApp
+            const message = `Salam Eilapadil. Saya berminat untuk membuat tempahan:\n\n` +
+                            `*Nama:* ${name}\n` +
+                            `*Pakej/Item:* ${pkg}\n` +
+                            `*Tarikh Majlis:* ${date}\n` +
+                            `*Lokasi:* ${location}\n\n` +
+                            `Mohon pihak Eilapadil semak kekosongan tarikh tersebut. Terima kasih.`;
+            
+            // Nombor sasaran seperti yang diminta
+            const phoneNumber = "60196310454"; 
+            
+            // Generate link & Buka di tab baru
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Tutup modal selepas hantar dan reset
+            bookingModal.classList.remove('active');
+            bookingForm.reset();
+        });
+        
+        // Tutup modal jika klik di luar kawasan (overlay)
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                bookingModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
